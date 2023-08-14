@@ -19,7 +19,7 @@ public class MqController {
 
     @PostMapping
     public ResponseEntity<String> publishMessage(@RequestBody MessageRequest request) {
-        mqService.publish(request.getMessage());
+        mqService.publish(request.getMessage(), request.getTo());
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 

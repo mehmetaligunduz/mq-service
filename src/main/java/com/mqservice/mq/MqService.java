@@ -2,6 +2,6 @@ package com.mqservice.mq;
 
 public interface MqService {
 
-    void publish(String message);
+    void publish(String message, String to);
 
 }

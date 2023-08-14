@@ -9,4 +9,6 @@ public class MessageRequest {
 
     private String message;
 
+    private String to;
+
 }

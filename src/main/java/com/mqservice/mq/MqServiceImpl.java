@@ -13,11 +13,11 @@ public class MqServiceImpl implements MqService {
     private final RabbitTemplate template;
 
     @Override
-    public void publish(String message) {
+    public void publish(String message, String to) {
         template.convertAndSend(
                 MqConfiguration.OTP_EXCHANGE,
                 MqConfiguration.OTP_ROUTING_KEY,
-                new MessageEntity(message));
+                new MessageEntity(message, to));
     }
 
 }

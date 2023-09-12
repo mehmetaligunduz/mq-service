@@ -1,4 +1,4 @@
-package com.mqservice.common.request;
+package com.mqservice.request;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.mqservice.resource;
 
-import com.mqservice.common.request.MessageRequest;
+import com.mqservice.request.MessageRequest;
 import com.mqservice.mq.MqService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

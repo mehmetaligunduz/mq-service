@@ -20,7 +20,7 @@ public class MessageEntity {
     public MessageEntity(String message, String to) {
         this.id = UUID.randomUUID().toString();
         this.message = message;
-        this.to = "+90" + to;
+        this.to = to;
         this.date = new Date();
 
     }

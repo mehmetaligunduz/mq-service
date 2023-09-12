@@ -1,29 +1,34 @@
 package com.mqservice.configuration;
 
+import lombok.Setter;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@Setter
 @Configuration
+@ConfigurationProperties(prefix = "rabbitmq-otp")
 public class MqConfiguration {
 
-    public static final String OTP_QUEUE = "otp_code_sms_queue";
-    public static final String OTP_EXCHANGE = "otp_code_sms_exchange";
-    public static final String OTP_ROUTING_KEY = "otp_code_sms_routing_key";
+    private String queue;
 
+    private String exchange;
+
+    private String routingKey;
 
     @Bean
     public Queue queue() {
-        return new Queue(OTP_QUEUE);
+        return new Queue(queue);
     }
 
     @Bean
     public TopicExchange exchange() {
-        return new TopicExchange(OTP_EXCHANGE);
+        return new TopicExchange(exchange);
     }
 
     @Bean
@@ -31,7 +36,7 @@ public class MqConfiguration {
         return BindingBuilder
                 .bind(queue)
                 .to(exchange)
-                .with(OTP_ROUTING_KEY);
+                .with(routingKey);
     }
 
     @Bean

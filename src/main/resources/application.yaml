@@ -2,3 +2,8 @@ server:
   port: 8082
   servlet:
     context-path: /mq-service
+
+rabbitmq-otp:
+  queue: otp_code_sms_queue
+  exchange: otp_code_sms_exchange
+  routingKey: otp_code_sms_routing_key
